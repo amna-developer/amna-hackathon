@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<style>
+    body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+.hero-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 50px; /* Adjust padding as needed */
+  background-color: #ffffff;
+  gap: 50px; /* Space between text and image */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.hero-content {
+  flex: 1;
+  min-width: 300px; /* Minimum width before wrapping */
+  max-width: 500px; /* Max width for the content block */
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  color: #333333;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 18px;
+  color: #555555;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.btn-filled {
+  background-color: #2e8b57; /* A shade of green */
+  color: #ffffff;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-filled:hover {
+  background-color: #246a44; /* Darker green on hover */
+}
+
+.hero-image {
+  flex: 1;
+  min-width: 400px; /* Minimum width for the image before wrapping */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  display: block; /* Remove extra space below image */
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .hero-section {
+    flex-direction: column; /* Stack content and image vertically */
+    text-align: center;
+    padding: 60px 30px;
+  }
+
+  .hero-content h1 {
+    font-size: 38px;
+  }
+
+  .hero-content p {
+    font-size: 16px;
+  }
+
+  .hero-image {
+    margin-top: 40px; /* Space above image when stacked */
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-content h1 {
+    font-size: 32px;
+  }
+
+  .hero-content p {
+    font-size: 15px;
+  }
+
+  .btn-filled {
+    padding: 12px 25px;
+    font-size: 16px;
+  }
+
+  .hero-section {
+    padding: 40px 20px;
+  }
+}
+.why-newsletter-app-section {
+  padding: 80px 50px;
+  background-color: #f9f9f9; /* Light background for the section */
+  text-align: center;
+}
+
+.section-header {
+  margin-bottom: 60px;
+}
+
+.section-header h2 {
+  font-size: 38px;
+  color: #333333;
+  margin-bottom: 15px;
+}
+
+.section-header .sub-heading {
+  font-size: 18px;
+  color: #2e8b57; /* Green color for sub-heading */
+  font-weight: bold;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr; /* Left column, image column, right column */
+  grid-template-rows: auto auto auto; /* Three rows for features */
+  gap: 40px; /* Space between grid items */
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px; /* Limit grid width */
+  margin: 0 auto; /* Center the grid */
+}
+
+.feature-item {
+  text-align: left;
+  padding: 20px;
+  max-width: 350px; /* Control width of feature text blocks */
+}
+
+.feature-item h3 {
+  font-size: 22px;
+  color: #333333;
+  margin-bottom: 10px;
+  position: relative; /* For the green line */
+  padding-left: 20px; /* Space for the line */
+}
+
+.feature-item p {
+  font-size: 15px;
+  color: #555555;
+  line-height: 1.6;
+}
+
+.feature-line {
+  position: absolute;
+  left: 0;
+  top: 5px; /* Adjust vertical position */
+  height: 80%; /* Length of the line */
+  width: 4px; /* Thickness of the line */
+  background-color: #2e8b57; /* Green line color */
+  border-radius: 2px;
+}
+
+/* Positioning for grid items */
+.feature-item-left {
+  text-align: right;
+  justify-self: end; /* Align to the right of its grid cell */
+}
+
+.feature-item-left .feature-line {
+  left: auto; /* Override left */
+  right: 0;
+}
+
+.feature-item-right {
+  text-align: left;
+  justify-self: start; /* Align to the left of its grid cell */
+}
+
+.feature-item-right h3 {
+  padding-left: 20px; /* Ensure padding for the line */
+  padding-right: 0;
+}
+
+.feature-item-right .feature-line {
+  left: 0; /* Keep line on the left */
+  right: auto;
+}
+
+
+/* Specific grid placement */
+.top-left {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+.top-right {
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
+}
+
+.middle-left {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+}
+
+.central-illustration {
+  grid-column: 2 / 3;
+  grid-row: 1 / 4; /* Spans all three rows */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.central-illustration img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  background-color: white;
+}
+
+.middle-right {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+}
+
+.bottom-left {
+  grid-column: 1 / 2;
+  grid-row: 3 / 4;
+}
+
+.bottom-right {
+  grid-column: 3 / 4;
+  grid-row: 3 / 4;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .features-grid {
+    grid-template-columns: 1fr; /* Stack everything in one column */
+    grid-template-rows: auto; /* Auto rows */
+    gap: 30px;
+  }
+
+  .central-illustration {
+    grid-column: 1 / 2; /* Center in the single column */
+    grid-row: auto; /* Allow auto placement */
+    order: -1; /* Move illustration to the top on smaller screens */
+  }
+
+  .feature-item {
+    text-align: center; /* Center text */
+    max-width: 500px;
+    margin: 0 auto; /* Center the item */
+    padding: 0;
+  }
+
+  .feature-item h3 {
+    padding-left: 0;
+  }
+
+  .feature-item .feature-line {
+    display: none; /* Hide the green lines on small screens if they look odd */
+  }
+
+  .feature-item-left,
+  .feature-item-right {
+    justify-self: center; /* Center all items */
+  }
+
+  .section-header h2 {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 576px) {
+  .section-header h2 {
+    font-size: 28px;
+  }
+
+  .section-header .sub-heading {
+    font-size: 16px;
+  }
+
+  .why-newsletter-app-section {
+    padding: 60px 20px;
+  }
+}
+.info-section {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  padding: 80px 20px;
+  background-color: #f8f8f8; /* A very light gray background instead of green */
+}
+
+.info-content {
+  max-width: 500px; /* Adjust as needed */
+  text-align: left; /* Aligns all content to the left */
+}
+
+.info-content h2 {
+  font-size: 32px;
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+.info-content p {
+  font-size: 16px;
+  color: #555555;
+  line-height: 1.6;
+}
+
+.btn-filled {
+  display: inline-block; /* Makes the link behave like a block-level element to apply padding */
+  background-color: #2e8b57;
+  color: #ffffff;
+  padding: 10px 25px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-filled:hover {
+  background-color: #246a44;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .info-content {
+    max-width: 100%;
+  }
+
+  .info-content h2 {
+    font-size: 28px;
+  }
+}
+.testimonial-section {
+  padding: 80px 20px;
+  background-color: #ffe6c1; /* Light peach background color */
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+.card-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Allows cards to wrap on smaller screens */
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.testimonial-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 350px;
+  flex: 1 1 300px; /* Flex-grow, flex-shrink, flex-basis */
+}
+
+.card-heading {
+  color: #2e8b57; /* Green heading color */
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.card-name {
+  color: #a9a9a9; /* Light gray for the name */
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.card-content {
+  position: relative;
+  text-align: left;
+}
+
+.card-content p {
+  color: #555555;
+  line-height: 1.6;
+  font-size: 15px;
+  margin-bottom: 0;
+}
+
+.quote-mark {
+  position: absolute;
+  bottom: -20px; /* Adjust as needed */
+  right: -5px; /* Adjust as needed */
+  font-size: 100px; /* Large size for the quote mark */
+  color: #e0e0e0;
+  font-family: Georgia, serif;
+  z-index: 1;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .card-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.reading-section {
+  padding: 80px 20px;
+  background-color: #f8f8f8; /* Light gray background to match the image */
+  text-align: center; /* This centers the text within the section */
+}
+
+.content-container {
+  max-width: 600px; /* Optional: This controls how wide the text block can get */
+  margin: 0 auto; /* This centers the container itself */
+}
+
+.content-container h2 {
+  font-size: 38px;
+  color: #333333;
+  margin-bottom: 10px;
+}
+
+.content-container p {
+  font-size: 18px;
+  color: #555555;
+  line-height: 1.6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .content-container h2 {
+    font-size: 32px;
+  }
+}
+.testimonials-section {
+  padding: 50px 20px;
+  background-color: #ffffff;
+}
+
+.testimonials-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.green-text {
+  color: #2e8b57;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.testimonial-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.testimonial-card {
+  position: relative;
+  max-width: 350px;
+  text-align: left;
+}
+
+.quote-text {
+  font-size: 16px;
+  color: #555555;
+  line-height: 1.6;
+}
+
+.testimonial-card::after {
+  content: '”';
+  position: absolute;
+  top: 50%;
+  right: -20px;
+  font-size: 120px;
+  color: #e0e0e0;
+  transform: translateY(-50%);
+  z-index: -1;
+}
+
+.author-info {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.author-info img {
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.author-details {
+  line-height: 1.2;
+}
+
+.author-name {
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 2px;
+}
+
+.author-role {
+  font-size: 14px;
+  color: #888888;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .testimonial-card {
+    margin-bottom: 20px;
+  }
+}
+.cta-dark-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2b3034; /* Dark background */
+  color: #ffffff;
+  padding: 80px 50px;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.cta-dark-content {
+  max-width: 500px;
+}
+
+.cta-dark-content h3 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.cta-dark-content p {
+  font-size: 18px;
+  color: #a9a9a9;
+  margin-bottom: 30px;
+}
+
+.cta-dark-content ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.cta-dark-content ul li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.cta-dark-content ul li img {
+  margin-right: 15px;
+}
+
+.cta-button {
+  background-color: #2e8b57;
+  color: #ffffff;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #246a44;
+}
+
+.cta-dark-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .cta-dark-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cta-dark-content ul {
+    text-align: left;
+    margin: 0 auto 30px;
+    max-width: 350px;
+  }
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: #2e8b57; /* Green background */
+  color: #ffffff;
+}
+
+.footer-bottom-links {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.footer-bottom-links a {
+  text-decoration: none;
+  color: #ffffff;
+  margin: 0 5px;
+}
+
+.footer-bottom-links span {
+  color: #ffffff;
+}
+
+.footer-logo {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.app-suffix {
+  font-size: 10px;
+  vertical-align: super;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer-bottom {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+}
+
+
+ 
+</style>
+
+</head>
+<body>
+    <div>
+   <header class="d-flex flex-wrap align-items-center justify-content-between py-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+      </a>
+      <div class="logo">
+<img src="./Group 993.png" alt="">
+</div>
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="#" class="nav-link px-2 link-secondary">How it works</a></li>
+        <li><a href="#" class="nav-link px-2 link-success">Why NewsletterApp?</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Pricing</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Blog</a></li>
+        
+      </ul>
+
+      <div class="col-md-3 text-end">
+        <button type="button" class="btn btn-outline-success me-2 rounded-pill">Login</button>
+      </div>
+    </header>
+    </div>
+    <div>
+<section class="hero-section">
+  <div class="hero-content">
+    <h1>Bring back the joy of reading newsletters</h1>
+    <p>Discover, subscribe and read all your email newsletters in one place.</p>
+    <button class="btn-filled rounded-pill">TRY FOR FREE</button>
+  </div>
+  <div class="hero-image">
+    <img src="./Frame (1).png" alt="Newsletter App Illustration">
+  </div>
+</section>
+</div>
+
+<div>
+    <section class="why-newsletter-app-section">
+  <div class="section-header">
+    <h2>Why Newsletter-App? How to enjoy your feed?</h2>
+    <p class="sub-heading">Be ready for an amazing experience.</p>
+  </div>
+
+  <div class="features-grid">
+    <div class="feature-item feature-item-left top-left">
+      <div class="feature-line"></div>
+      <h3>Kill The Spam</h3>
+      <p>Use Newsletter email to subscribe to newsletters. Win the battle against spam. Earn more time for what matters.</p>
+    </div>
+
+    <div class="feature-item feature-item-right top-right">
+      <div class="feature-line"></div>
+      <h3>One-Click Unsubscribe</h3>
+      <p>Don't like what you're reading? Remove the feed and never see it again.</p>
+    </div>
+
+    <div class="feature-item feature-item-left middle-left">
+      <div class="feature-line"></div>
+      <h3>Be part of Newsletter community</h3>
+      <p>Join top experts for a chat on the topics and trends that matter to you.</p>
+    </div>
+
+    <div class="central-illustration">
+      <img src="./Frame.png" alt="Central illustration for Newsletter App features">
+    </div>
+
+    <div class="feature-item feature-item-right middle-right">
+      <div class="feature-line"></div>
+      <h3>Control Your Feed</h3>
+      <p>Group newsletters into folders, create labels, quickly mark as read and update the appearance.</p>
+    </div>
+
+    <div class="feature-item feature-item-left bottom-left">
+      <div class="feature-line"></div>
+      <h3>Discover Newsletters</h3>
+      <p>Browse through your interests and find the ultimate content. Inspire yourself!</p>
+    </div>
+
+    <div class="feature-item feature-item-right bottom-right">
+      <div class="feature-line"></div>
+      <h3>Enjoy Newsletter</h3>
+      <p>No ads and spam in this app. Take reading and sharing to the next level with Letterbox.</p>
+    </div>
+  </div>
+</section>
+</div>
+<section class="info-section">
+  <div class="info-content">
+    <h2>WHY NEWSLETTER-APP?</h2>
+    <p>Newsletter-App is a brand new application for newsletters reading. With Newsletter-App, you will have the chance to bring back the joy of newsletter reading. There are no ads, no spam emails and...<br>
+    <a href="#" class="btn-filled">READ MORE</a>
+    </p>
+  </div>
+</section>
+<div>
+    <section class="testimonial-section">
+  <div class="card-grid">
+    <div class="testimonial-card">
+      <h4 class="card-heading">BUSINESS DEVELOPMENT</h4>
+      <p class="card-name">agenus</p>
+      <div class="card-content">
+        <p>Lorem ipsum dolor sit amet, adhuc nulla definiebas mei ad, ei doming aperiam delicata est. Lorem ipsum dolor sit amet.</p>
+        <div class="quote-mark">”</div>
+      </div>
+    </div>
+    
+    <div class="testimonial-card">
+      <h4 class="card-heading">DIGITAL MARKETING</h4>
+      <p class="card-name">agenus</p>
+      <div class="card-content">
+        <p>Lorem ipsum dolor sit amet, adhuc nulla definiebas mei ad, ei doming aperiam delicata est. Lorem ipsum dolor sit amet.</p>
+        <div class="quote-mark">”</div>
+      </div>
+    </div>
+    
+    <div class="testimonial-card">
+      <h4 class="card-heading">TEHNOLOGIES</h4>
+      <p class="card-name">agenus</p>
+      <div class="card-content">
+        <p>Lorem ipsum dolor sit amet, adhuc nulla definiebas mei ad, ei doming aperiam delicata est. Lorem ipsum dolor sit amet.</p>
+        <div class="quote-mark">”</div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+<div>
+    <section class="reading-section">
+  <div class="content-container">
+    <h2>Enjoy reading newsletters</h2>
+    <p>Read valuable, high-quality content based on <br> your interest and expertise</p>
+  </div>
+</section>
+</div>
+<div>
+    <section class="testimonials-section">
+  <div class="testimonials-header">
+    <h3 class="green-text">Join 1000+ Happy Premium Users</h3>
+  </div>
+  <div class="testimonial-grid">
+    <div class="testimonial-card">
+      <p class="quote-text">Lorem ipsum dolor sit amet, adhuc nulla definiebas mei ad, ei doming aperiam delicata est.</p>
+      <div class="author-info">
+        <img src="./01.png" alt="Jane Doe">
+        <div class="author-details">
+          <p class="author-name">Jane Doe</p>
+          <p class="author-role">Content Strategist</p>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <p class="quote-text">Lorem ipsum dolor sit amet, adhuc nulla definiebas mei ad, ei doming aperiam delicata est.</p>
+      <div class="author-info">
+        <img src="./01.png" alt="Alex Chen">
+        <div class="author-details">
+          <p class="author-name">Alex Chen</p>
+          <p class="author-role">Marketing Manager</p>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <p class="quote-text">Lorem ipsum dolor sit amet, adhuc nulla definiebas mei ad, ei doming aperiam delicata est.</p>
+      <div class="author-info">
+        <img src="./01.png" alt="Maria Garcia">
+        <div class="author-details">
+          <p class="author-name">Maria Garcia</p>
+          <p class="author-role">Community Lead</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+<div>
+   <section class="cta-dark-section">
+  <div class="cta-dark-content">
+    <h3>Bring back the joy of reading newsletters</h3>
+    <p>Subscribe and be ready for an amazing experience</p>
+    <ul>
+      <li><img src="./check.png" alt="Check mark icon"> Save time and read your newsletters in one place.</li>
+      <li><img src="./check.png" alt="Check mark icon"> Organize your newsletter feed according to your interests.</li>
+      <li><img src="./check.png" alt="Check mark icon"> Forget about newsletters emails and focus only in reading.</li>
+    </ul>
+    <button class="cta-button rounded-pill">SUBSCRIBE</button>
+  </div>
+  <div class="cta-dark-image">
+    <img src="./Screenshot_2025-09-16_111237-removebg-preview (1).png" alt="Illustration of browser windows">
+  </div>
+</section>
+  </div>
+</div>
+       
+</div>
+     
+</div>
+</div>
+<div>
+    <div class="footer-bottom">
+  <div class="footer-bottom-links">
+    <a href="#">Privacy Policy</a>
+    <span>/</span>
+    <a href="#">Personal Information</a>
+    <span>/</span>
+    <a href="#">Terms of Service</a>
+  </div>
+  <div class="footer-logo">
+    <span>2021</span>
+    <span>NEWSLETTER<sup class="app-suffix">APP</sup></span>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
